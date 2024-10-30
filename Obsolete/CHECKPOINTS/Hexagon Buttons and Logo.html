@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A minimalist hexagon button with an image overlay that inverts colors on hover.">
+    <meta name="keywords" content="minimalist, hexagon button, UI design, CSS, JavaScript, responsive design, color inversion">
+    <meta name="author" content="Your Name">
+    <title>Minimalist Hexagon Button with Color Inversion</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@500&display=swap" rel="stylesheet">
+    
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            background-color: white;
+            overflow: hidden;
+            scroll-behavior: smooth;
+        }
+
+        * {
+            font-family: 'Bodoni Moda', serif;
+            color: black;
+        }
+
+        .background-container {
+            position: absolute;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+            /* Background image */
+            background: url('Tennex media gradient@300x.png') no-repeat center center;
+            background-size: 40%;
+        }
+
+        .hexagon-buttons-wrapper {
+            position: relative;
+            width: 15vw;
+            height: 15vw;
+        }
+
+        .hexagon-button-container {
+            width: 10vw;
+            height: 10vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            opacity: 1;
+            pointer-events: auto;
+            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
+
+        .hidden {
+            opacity: 0;
+            pointer-events: none;
+            transform: scale(0.8);
+        }
+
+        .fade-in {
+            opacity: 1;
+            transform: scale(1);
+            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
+
+        .hexagon-button {
+            width: 100%;
+            height: 100%;
+            clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+            background-color: transparent;
+            box-shadow: 0 5px 15px rgb(24, 0, 158);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, background-color 0.3s ease-in-out;
+            cursor: pointer;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .hexagon-button img {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            transform: rotate(-90deg);
+            transform-origin: center;
+            transition: filter 0.3s ease-in-out;
+        }
+
+        .hexagon-button span {
+            font-size: 1.5vw;
+            color: black;
+            pointer-events: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .hexagon-button:hover {
+            background-color: black;
+            box-shadow: 0 0 20px 10px black;
+            transform: scale(1.2);
+        }
+
+        .hexagon-button:hover img {
+            filter: invert(1);
+        }
+
+        .hexagon-button:hover span {
+            color: white;
+        }
+
+        .button-one { top: 5.75vh; left: 2.5vw; }
+        .button-two { top: -6vh; left: 10.25vw; }
+        .button-three { top: 17.5vh; left: 10.25vw; }
+        .button-four { top: 29vh; left: 2.5vw; }
+        .button-five { top: 17.5vh; left: -5.25vw; }
+        .button-six { top: -6vh; left: -5.25vw; }
+        .button-seven { top: -18vh; left: 2.5vw; }
+
+        .button-a1 { top: 5.75vh; left: -48vw; }
+        .button-a2 { top: 5.75vh; left: 53vw; }
+        .button-a3 { top: 57vh; left: 2.5vw; }
+    </style>
+</head>
+<body>
+    <div class="background-container">
+        <div class="hexagon-buttons-wrapper">
+            <div class="hexagon-button-container button-one hidden">
+                <div class="hexagon-button">
+                    <img src="pngwing.png" alt="Hexagon Outline">
+                    <span>Button One</span>
+                </div>
+            </div>
+            <div class="hexagon-button-container button-two hidden">
+                <div class="hexagon-button">
+                    <img src="pngwing.png" alt="Hexagon Outline">
+                    <span>Button Two</span>
+                </div>
+            </div>
+            <div class="hexagon-button-container button-three hidden">
+                <div class="hexagon-button">
+                    <img src="pngwing.png" alt="Hexagon Outline">
+                    <span>Button Three</span>
+                </div>
+            </div>
+            <div class="hexagon-button-container button-four hidden">
+                <div class="hexagon-button">
+                    <img src="pngwing.png" alt="Hexagon Outline">
+                    <span>Button Four</span>
+                </div>
+            </div>
+            <div class="hexagon-button-container button-five hidden">
+                <div class="hexagon-button">
+                    <img src="pngwing.png" alt="Hexagon Outline">
+                    <span>Button Five</span>
+                </div>
+            </div>
+            <div class="hexagon-button-container button-six hidden">
+                <div class="hexagon-button">
+                    <img src="pngwing.png" alt="Hexagon Outline">
+                    <span>Button Six</span>
+                </div>
+            </div>
+            <div class="hexagon-button-container button-seven hidden">
+                <div class="hexagon-button">
+                    <img src="pngwing.png" alt="Hexagon Outline">
+                    <span>Button Seven</span>
+                </div>
+            </div>
+            <div class="hexagon-button-container button-a1" onclick="revealInOrder()">
+                <div class="hexagon-button">
+                    <img src="pngwing.png" alt="Hexagon Outline">
+                    <span>Button A1</span>
+                </div>
+            </div>
+            <div class="hexagon-button-container button-a2" onclick="showOnlyButtonThree()">
+                <div class="hexagon-button">
+                    <img src="pngwing.png" alt="Hexagon Outline">
+                    <span>Button A2</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function revealInOrder() {
+            // Hide the background image by setting it to none
+            document.querySelector('.background-container').style.background = 'none';
+
+            // Select all seven buttons that need to appear
+            const buttons = document.querySelectorAll('.button-one, .button-two, .button-three, .button-four, .button-five, .button-six, .button-seven');
+            
+            // Loop through each button and reveal it in sequence
+            buttons.forEach((button, index) => {
+                setTimeout(() => {
+                    button.classList.remove('hidden'); // Ensure hidden class is removed
+                    button.classList.add('fade-in');   // Add fade-in effect
+                }, index * 500); // 500ms delay between each button
+            });
+        }
+
+        function showOnlyButtonThree() {
+            const buttonsToHide = document.querySelectorAll('.button-one, .button-two, .button-three, .button-four, .button-five, .button-six, .button-seven');
+            buttonsToHide.forEach(button => {
+                button.classList.remove('fade-in');
+                button.classList.add('fade-out');
+                setTimeout(() => {
+                    button.classList.add('hidden');
+                    button.classList.remove('fade-out');
+                }, 300);
+            });
+        }
+    </script>
+</body>
+</html>

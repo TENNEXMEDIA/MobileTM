@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Document Head Section: Start -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Hexagon Cascade">
+    <title>Hexagon Cascade</title>
+    <!-- Link to Google Font: Bodoni Moda -->
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@500&display=swap" rel="stylesheet">
+    <!-- Document Head Section: End -->
+    
+    <!-- CSS Section: Start -->
+    <style>
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    background-color: white; /* Set back to white */
+    overflow: hidden;
+    scroll-behavior: smooth;
+}
+
+* {
+    font-family: 'Bodoni Moda', serif;
+    color: white;
+}
+
+/* Positionable Left and Right Button Styling */
+.hexagon-button-container {
+    position: absolute;
+    width: 10vw;
+    height: 10vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Initial Positions (Adjustable Relative to Center) */
+#l1 {
+    transform: translate(calc(-50% - 51.25vw), calc(-50% - 35vh)); 
+    left: 50vw; 
+    top: 50vh; 
+}
+
+#l2 {
+    transform: translate(calc(-50% + 51.25vw), calc(-50% + 35vh)); 
+    left: 50vw; 
+    top: 50vh; 
+}
+
+.hexagon-button {
+    background: radial-gradient(circle at 50% 30%, rgba(85, 85, 85, 1), rgba(17, 17, 17, 1));
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
+}
+
+.hexagon-button:hover {
+    box-shadow: 0 0 20px 10px white;
+    transform: scale(1.2);
+}
+
+.hexagon-button span {
+    font-size: 1.5vw;
+    color: white;
+    pointer-events: none;
+}
+    </style>
+    <!-- CSS Section: End -->
+</head>
+
+<body>
+    <!-- Left and Right Hexagon Button Containers -->
+    <div id="l1" class="hexagon-button-container">
+        <div class="hexagon-button" id="hexagon-button-one">
+            <span>More</span>
+        </div>
+    </div>
+
+    <div id="l2" class="hexagon-button-container">
+        <div class="hexagon-button" id="hexagon-button-two">
+            <span>Assist</span>
+        </div>
+    </div>
+</body>
+</html>

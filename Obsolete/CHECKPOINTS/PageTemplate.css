@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A minimalist hexagon button with an image overlay that inverts colors on hover.">
+    <meta name="keywords" content="minimalist, hexagon button, UI design, CSS, JavaScript, responsive design, color inversion">
+    <meta name="author" content="Your Name">
+    <title>Minimalist Hexagon Button with Color Inversion</title>
+    <!-- Link to Google Font: Bodoni Moda -->
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@500&display=swap" rel="stylesheet">
+    
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            background-color: white;
+            overflow: hidden;
+            scroll-behavior: smooth;
+        }
+
+        * {
+            font-family: 'Bodoni Moda', serif;
+            color: black;
+        }
+
+        /* Background Container Styling */
+        .background-container {
+            position: absolute;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: white;
+        }
+
+        /* Center Wrapper for Relative Positioning */
+        .hexagon-buttons-wrapper {
+            position: relative;
+            width: 15vw;
+            height: 15vw;
+        }
+
+        /* Hexagon Button Styling */
+        .hexagon-button-container {
+            width: 10vw;
+            height: 10vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+        }
+
+        /* Hexagon Shape */
+        .hexagon-button {
+            width: 100%;
+            height: 100%;
+            clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+            background-color: transparent;
+            box-shadow: 0 5px 15px rgb(24, 0, 158);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, background-color 0.3s ease-in-out;
+            cursor: pointer;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        /* Image Positioned to Cover the Button Exactly */
+        .hexagon-button img {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            transform: rotate(-90deg);
+            transform-origin: center;
+            transition: filter 0.3s ease-in-out;
+        }
+
+        /* Center the Text */
+        .hexagon-button span {
+            font-size: 1.5vw;
+            color: black;
+            pointer-events: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            transition: color 0.3s ease-in-out;
+        }
+
+        /* Hover Effect */
+        .hexagon-button:hover {
+            background-color: black;
+            box-shadow: 0 0 20px 10px black;
+            transform: scale(1.2);
+        }
+
+        .hexagon-button:hover img {
+            filter: invert(1);
+        }
+
+        .hexagon-button:hover span {
+            color: white;
+        }
+
+        /* Positioning Relative to Center Button */
+        .button-one {
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .button-two {
+            top: -6vh;
+            left: 10.25vw;
+        }
+
+        .button-three {
+            top: 17.5vh;
+            left: 10.25vw;
+        }
+        
+        .button-four {
+            top: 29vh;
+            left: 2.5vw;
+        }
+
+        .button-five {
+            top: 17.5vh;
+            left: -5.25vw;
+        }
+
+        .button-six {
+            top: -6vh;
+            left: -5.25vw;
+        }
+
+        .button-seven {
+            top: -18vh;
+            left: 2.5vw;
+        }
+
+        /* Additional Buttons */
+        .button-a1 { 
+            top: 5.75vh;
+            left: -48vw;
+        }
+
+        .button-a2 {
+            top: 5.75vh;
+            left: 53vw;
+        }
+
+        .button-a3 {
+            top: 57vh;
+            left: 2.5vw;
+        }
+    </style>
+</head>
+<body>
+    <div class="background-container">
+        <div class="hexagon-buttons-wrapper">
+            <div class="hexagon-button-container button-one">
+                <div class="hexagon-button">
+                    <img src="pngwing.png" alt="Hexagon Outline">
+                    <span>Button One</span>
+                </div>
+            </div>
+            <div class="hexagon-button-container button-two">
+                <div class="hexagon-button">
+                    <img src="pngwing.png" alt="Hexagon Outline">
+                    <span>Button Two</span>
+                </div>
+            </div>
+            <div class="hexagon-button-container button-three">
+                <div class="hexagon-button">
+                    <img src="pngwing.png" alt="Hexagon Outline">
+                    <span>Button Three</span>
+                </div>
+            </div>
+            <div class="hexagon-button-container button-four">
+                <div class="hexagon-button">
+                    <img src="pngwing.png" alt="Hexagon Outline">
+                    <span>Button Four</span>
+                </div>
+            </div>
+            <div class="hexagon-button-container button-five">
+                <div class="hexagon-button">
+                    <img src="pngwing.png" alt="Hexagon Outline">
+                    <span>Button Five</span>
+                </div>
+            </div>
+            <div class="hexagon-button-container button-six">
+                <div class="hexagon-button">
+                    <img src="pngwing.png" alt="Hexagon Outline">
+                    <span>Button Six</span>
+                </div>
+            </div>
+            <div class="hexagon-button-container button-seven">
+                <div class="hexagon-button">
+                    <img src="pngwing.png" alt="Hexagon Outline">
+                    <span>Button Seven</span>
+                </div>
+            </div>
+            <!-- Additional Hexagon Buttons -->
+            <div class="hexagon-button-container button-a1">
+                <div class="hexagon-button">
+                    <img src="pngwing.png" alt="Hexagon Outline">
+                    <span>Button A1</span>
+                </div>
+            </div>
+            <div class="hexagon-button-container button-a2">
+                <div class="hexagon-button">
+                    <img src="pngwing.png" alt="Hexagon Outline">
+                    <span>Button A2</span>
+                </div>
+            </div>
+            <div class="hexagon-button-container button-a3">
+                <div class="hexagon-button">
+                    <img src="pngwing.png" alt="Hexagon Outline">
+                    <span>Button A3</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

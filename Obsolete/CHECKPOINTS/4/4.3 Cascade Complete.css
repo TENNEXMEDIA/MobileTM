@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Hexagon Cascade">
+    <title>Hexagon Cascade</title>
+
+    <!-- Link to Google Font: Bodoni Moda -->
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@500&display=swap" rel="stylesheet">
+
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            background-color: white;
+            overflow: hidden;
+            scroll-behavior: smooth;
+        }
+
+        * {
+            font-family: 'Bodoni Moda', serif;
+            color: white;
+        }
+
+        .hexagon-label {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5vw;
+        }
+
+        .hexagon {
+            position: absolute;
+            width: 10vw;
+            height: 10vw;
+            background: radial-gradient(circle at 50% 30%, rgba(85, 85, 85, 1), rgba(17, 17, 17, 1));
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .hexagon-button {
+            background: radial-gradient(circle at 50% 30%, rgba(85, 85, 85, 1), rgba(17, 17, 17, 1));
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
+        }
+
+        .hexagon-button span {
+            font-size: 1.5vw;
+            color: white;
+            pointer-events: none;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .hexagon-button-container {
+            position: absolute;
+            width: 10vw;
+            height: 10vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            left: calc(50% - 51.25vw);
+            top: calc(50% - 35vh);
+            transform: translate(-50%, -50%);
+            z-index: 1;
+        }
+
+        #l2 {
+            left: calc(50% + 51.25vw);
+            top: calc(50% + 35vh);
+            transform: translate(-50%, -50%);
+        }
+
+        .hexagon-button:hover {
+            box-shadow: 0 0 20px 10px white;
+            transform: scale(1.2);
+            z-index: 10;
+        }
+
+        /* Hexagon Positions for Groups A-G */
+        #A1 { transform: translate(calc(-50% - 46.125vw), calc(-50% - 52.5vh)); left: 50vw; top: 50vh; }
+        #A2 { transform: translate(calc(-50% - 35.875vw), calc(-50% - 52.5vh)); left: 50vw; top: 50vh; }
+        #A3 { transform: translate(calc(-50% - 25.625vw), calc(-50% - 52.5vh)); left: 50vw; top: 50vh; }
+        #A4 { transform: translate(calc(-50% - 15.375vw), calc(-50% - 52.5vh)); left: 50vw; top: 50vh; }
+        #A5 { transform: translate(calc(-50% - 5.125vw), calc(-50% - 52.5vh)); left: 50vw; top: 50vh; }
+        #A6 { transform: translate(calc(-50% + 5.125vw), calc(-50% - 52.5vh)); left: 50vw; top: 50vh; }
+        #A7 { transform: translate(calc(-50% + 15.375vw), calc(-50% - 52.5vh)); left: 50vw; top: 50vh; }
+        #A8 { transform: translate(calc(-50% + 25.625vw), calc(-50% - 52.5vh)); left: 50vw; top: 50vh; }
+        #A9 { transform: translate(calc(-50% + 35.875vw), calc(-50% - 52.5vh)); left: 50vw; top: 50vh; }
+        #A10 { transform: translate(calc(-50% + 46.125vw), calc(-50% - 52.5vh)); left: 50vw; top: 50vh; }
+
+        #B2 { transform: translate(calc(-50% - 41vw), calc(-50% - 35vh)); left: 50vw; top: 50vh; }
+        #B3 { transform: translate(calc(-50% - 30.75vw), calc(-50% - 35vh)); left: 50vw; top: 50vh; }
+        #B4 { transform: translate(calc(-50% - 20.5vw), calc(-50% - 35vh)); left: 50vw; top: 50vh; }
+        #B5 { transform: translate(calc(-50% - 10.25vw), calc(-50% - 35vh)); left: 50vw; top: 50vh; }
+        #B6 { transform: translate(calc(-50% + 0vw), calc(-50% - 35vh)); left: 50vw; top: 50vh; }
+        #B7 { transform: translate(calc(-50% + 10.25vw), calc(-50% - 35vh)); left: 50vw; top: 50vh; }
+        #B8 { transform: translate(calc(-50% + 20.5vw), calc(-50% - 35vh)); left: 50vw; top: 50vh; }
+        #B9 { transform: translate(calc(-50% + 30.75vw), calc(-50% - 35vh)); left: 50vw; top: 50vh; }
+        #B10 { transform: translate(calc(-50% + 41vw), calc(-50% - 35vh)); left: 50vw; top: 50vh; }
+        #B11 { transform: translate(calc(-50% + 51.25vw), calc(-50% - 35vh)); left: 50vw; top: 50vh; }
+
+        #C1 { transform: translate(calc(-50% - 46.125vw), calc(-50% - 17.5vh)); left: 50vw; top: 50vh; }
+        #C2 { transform: translate(calc(-50% - 35.875vw), calc(-50% - 17.5vh)); left: 50vw; top: 50vh; }
+        #C3 { transform: translate(calc(-50% - 25.625vw), calc(-50% - 17.5vh)); left: 50vw; top: 50vh; }
+        #C4 { transform: translate(calc(-50% - 15.375vw), calc(-50% - 17.5vh)); left: 50vw; top: 50vh; }
+        #C5 { transform: translate(calc(-50% - 5.125vw), calc(-50% - 17.5vh)); left: 50vw; top: 50vh; }
+        #C6 { transform: translate(calc(-50% + 5.125vw), calc(-50% - 17.5vh)); left: 50vw; top: 50vh; }
+        #C7 { transform: translate(calc(-50% + 15.375vw), calc(-50% - 17.5vh)); left: 50vw; top: 50vh; }
+        #C8 { transform: translate(calc(-50% + 25.625vw), calc(-50% - 17.5vh)); left: 50vw; top: 50vh; }
+        #C9 { transform: translate(calc(-50% + 35.875vw), calc(-50% - 17.5vh)); left: 50vw; top: 50vh; }
+        #C10 { transform: translate(calc(-50% + 46.125vw), calc(-50% - 17.5vh)); left: 50vw; top: 50vh; }
+
+        #D1 { transform: translate(calc(-50% - 51.25vw), calc(-50% + 0vh)); left: 50vw; top: 50vh; }
+        #D2 { transform: translate(calc(-50% - 41vw), calc(-50% + 0vh)); left: 50vw; top: 50vh; }
+        #D3 { transform: translate(calc(-50% - 30.75vw), calc(-50% + 0vh)); left: 50vw; top: 50vh; }
+        #D4 { transform: translate(calc(-50% - 20.5vw), calc(-50% + 0vh)); left: 50vw; top: 50vh; }
+        #D5 { transform: translate(calc(-50% - 10.25vw), calc(-50% + 0vh)); left: 50vw; top: 50vh; }
+        #D6 { left: 50%; top: 50%; transform: translate(-50%, -50%); animation: expandAndContract 1s ease-in-out forwards; }
+        #D7 { transform: translate(calc(-50% + 10.25vw), calc(-50% + 0vh)); left: 50vw; top: 50vh; }
+        #D8 { transform: translate(calc(-50% + 20.5vw), calc(-50% + 0vh)); left: 50vw; top: 50vh; }
+        #D9 { transform: translate(calc(-50% + 30.75vw), calc(-50% + 0vh)); left: 50vw; top: 50vh; }
+        #D10 { transform: translate(calc(-50% + 41vw), calc(-50% + 0vh)); left: 50vw; top: 50vh; }
+        #D11 { transform: translate(calc(-50% + 51.25vw), calc(-50% + 0vh)); left: 50vw; top: 50vh; }
+
+        #E1 { transform: translate(calc(-50% - 46.125vw), calc(-50% + 17.5vh)); left: 50vw; top: 50vh; }
+        #E2 { transform: translate(calc(-50% - 35.875vw), calc(-50% + 17.5vh)); left: 50vw; top: 50vh; }
+        #E3 { transform: translate(calc(-50% - 25.625vw), calc(-50% + 17.5vh)); left: 50vw; top: 50vh; }
+        #E4 { transform: translate(calc(-50% - 15.375vw), calc(-50% + 17.5vh)); left: 50vw; top: 50vh; }
+        #E5 { transform: translate(calc(-50% - 5.125vw), calc(-50% + 17.5vh)); left: 50vw; top: 50vh; }
+        #E6 { transform: translate(calc(-50% + 5.125vw), calc(-50% + 17.5vh)); left: 50vw; top: 50vh; }
+        #E7 { transform: translate(calc(-50% + 15.375vw), calc(-50% + 17.5vh)); left: 50vw; top: 50vh; }
+        #E8 { transform: translate(calc(-50% + 25.625vw), calc(-50% + 17.5vh)); left: 50vw; top: 50vh; }
+        #E9 { transform: translate(calc(-50% + 35.875vw), calc(-50% + 17.5vh)); left: 50vw; top: 50vh; }
+        #E10 { transform: translate(calc(-50% + 46.125vw), calc(-50% + 17.5vh)); left: 50vw; top: 50vh; }
+
+        #F1 { transform: translate(calc(-50% - 51.25vw), calc(-50% + 35vh)); left: 50vw; top: 50vh; }
+        #F2 { transform: translate(calc(-50% - 41vw), calc(-50% + 35vh)); left: 50vw; top: 50vh; }
+        #F3 { transform: translate(calc(-50% - 30.75vw), calc(-50% + 35vh)); left: 50vw; top: 50vh; }
+        #F4 { transform: translate(calc(-50% - 20.5vw), calc(-50% + 35vh)); left: 50vw; top: 50vh; }
+        #F5 { transform: translate(calc(-50% - 10.25vw), calc(-50% + 35vh)); left: 50vw; top: 50vh; }
+        #F6 { transform: translate(calc(-50% + 0vw), calc(-50% + 35vh)); left: 50vw; top: 50vh; }
+        #F7 { transform: translate(calc(-50% + 10.25vw), calc(-50% + 35vh)); left: 50vw; top: 50vh; }
+        #F8 { transform: translate(calc(-50% + 20.5vw), calc(-50% + 35vh)); left: 50vw; top: 50vh; }
+        #F9 { transform: translate(calc(-50% + 30.75vw), calc(-50% + 35vh)); left: 50vw; top: 50vh; }
+        #F10 { transform: translate(calc(-50% + 41vw), calc(-50% + 35vh)); left: 50vw; top: 50vh; }
+
+        #G1 { transform: translate(calc(-50% - 46.125vw), calc(-50% + 52.5vh)); left: 50vw; top: 50vh; }
+        #G2 { transform: translate(calc(-50% - 35.875vw), calc(-50% + 52.5vh)); left: 50vw; top: 50vh; }
+        #G3 { transform: translate(calc(-50% - 25.625vw), calc(-50% + 52.5vh)); left: 50vw; top: 50vh; }
+        #G4 { transform: translate(calc(-50% - 15.375vw), calc(-50% + 52.5vh)); left: 50vw; top: 50vh; }
+        #G5 { transform: translate(calc(-50% - 5.125vw), calc(-50% + 52.5vh)); left: 50vw; top: 50vh; }
+        #G6 { transform: translate(calc(-50% + 5.125vw), calc(-50% + 52.5vh)); left: 50vw; top: 50vh; }
+        #G7 { transform: translate(calc(-50% + 15.375vw), calc(-50% + 52.5vh)); left: 50vw; top: 50vh; }
+        #G8 { transform: translate(calc(-50% + 25.625vw), calc(-50% + 52.5vh)); left: 50vw; top: 50vh; }
+        #G9 { transform: translate(calc(-50% + 35.875vw), calc(-50% + 52.5vh)); left: 50vw; top: 50vh; }
+        #G10 { transform: translate(calc(-50% + 46.125vw), calc(-50% + 52.5vh)); left: 50vw; top: 50vh; }
+
+        @keyframes expandAndContract {
+            0% { transform: translate(-50%, -50%) scale(1); }
+            50% { transform: translate(-50%, -50%) scale(1.3); }
+            100% { transform: translate(-50%, -50%) scale(1); }
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="l1" class="hexagon-button-container">
+        <div class="hexagon-button" id="hexagon-button-one">
+            <span>More</span>
+        </div>
+    </div>
+
+    <div id="l2" class="hexagon-button-container">
+        <div class="hexagon-button" id="hexagon-button-two">
+            <span>Assist</span>
+        </div>
+    </div>
+
+    <!-- Hexagons (Groups A - G) -->
+    <div id="A1" class="hexagon"><span class="hexagon-label">A1</span></div>
+    <div id="A2" class="hexagon"><span class="hexagon-label">A2</span></div>
+    <div id="A3" class="hexagon"><span class="hexagon-label">A3</span></div>
+    <div id="A4" class="hexagon"><span class="hexagon-label">A4</span></div>
+    <div id="A5" class="hexagon"><span class="hexagon-label">A5</span></div>
+    <div id="A6" class="hexagon"><span class="hexagon-label">A6</span></div>
+    <div id="A7" class="hexagon"><span class="hexagon-label">A7</span></div>
+    <div id="A8" class="hexagon"><span class="hexagon-label">A8</span></div>
+    <div id="A9" class="hexagon"><span class="hexagon-label">A9</span></div>
+    <div id="A10" class="hexagon"><span class="hexagon-label">A10</span></div>
+    <div id="B2" class="hexagon"><span class="hexagon-label">B2</span></div>
+    <div id="B3" class="hexagon"><span class="hexagon-label">B3</span></div>
+    <div id="B4" class="hexagon"><span class="hexagon-label">B4</span></div>
+    <div id="B5" class="hexagon"><span class="hexagon-label">B5</span></div>
+    <div id="B6" class="hexagon"><span class="hexagon-label">B6</span></div>
+    <div id="B7" class="hexagon"><span class="hexagon-label">B7</span></div>
+    <div id="B8" class="hexagon"><span class="hexagon-label">B8</span></div>
+    <div id="B9" class="hexagon"><span class="hexagon-label">B9</span></div>
+    <div id="B10" class="hexagon"><span class="hexagon-label">B10</span></div>
+    <div id="B11" class="hexagon"><span class="hexagon-label">B11</span></div>
+    <div id="C1" class="hexagon"><span class="hexagon-label">C1</span></div>
+    <div id="C2" class="hexagon"><span class="hexagon-label">C2</span></div>
+    <div id="C3" class="hexagon"><span class="hexagon-label">C3</span></div>
+    <div id="C4" class="hexagon"><span class="hexagon-label">C4</span></div>
+    <div id="C5" class="hexagon"><span class="hexagon-label">C5</span></div>
+    <div id="C6" class="hexagon"><span class="hexagon-label">C6</span></div>
+    <div id="C7" class="hexagon"><span class="hexagon-label">C7</span></div>
+    <div id="C8" class="hexagon"><span class="hexagon-label">C8</span></div>
+    <div id="C9" class="hexagon"><span class="hexagon-label">C9</span></div>
+    <div id="C10" class="hexagon"><span class="hexagon-label">C10</span></div>
+    <div id="D1" class="hexagon"><span class="hexagon-label">D1</span></div>
+    <div id="D2" class="hexagon"><span class="hexagon-label">D2</span></div>
+    <div id="D3" class="hexagon"><span class="hexagon-label">D3</span></div>
+    <div id="D4" class="hexagon"><span class="hexagon-label">D4</span></div>
+    <div id="D5" class="hexagon"><span class="hexagon-label">D5</span></div>
+    <div id="D6" class="hexagon"><span class="hexagon-label">D6</span></div>
+    <div id="D7" class="hexagon"><span class="hexagon-label">D7</span></div>
+    <div id="D8" class="hexagon"><span class="hexagon-label">D8</span></div>
+    <div id="D9" class="hexagon"><span class="hexagon-label">D9</span></div>
+    <div id="D10" class="hexagon"><span class="hexagon-label">D10</span></div>
+    <div id="D11" class="hexagon"><span class="hexagon-label">D11</span></div>
+    <div id="E1" class="hexagon"><span class="hexagon-label">E1</span></div>
+    <div id="E2" class="hexagon"><span class="hexagon-label">E2</span></div>
+    <div id="E3" class="hexagon"><span class="hexagon-label">E3</span></div>
+    <div id="E4" class="hexagon"><span class="hexagon-label">E4</span></div>
+    <div id="E5" class="hexagon"><span class="hexagon-label">E5</span></div>
+    <div id="E6" class="hexagon"><span class="hexagon-label">E6</span></div>
+    <div id="E7" class="hexagon"><span class="hexagon-label">E7</span></div>
+    <div id="E8" class="hexagon"><span class="hexagon-label">E8</span></div>
+    <div id="E9" class="hexagon"><span class="hexagon-label">E9</span></div>
+    <div id="E10" class="hexagon"><span class="hexagon-label">E10</span></div>
+    <div id="F1" class="hexagon"><span class="hexagon-label">F1</span></div>
+    <div id="F2" class="hexagon"><span class="hexagon-label">F2</span></div>
+    <div id="F3" class="hexagon"><span class="hexagon-label">F3</span></div>
+    <div id="F4" class="hexagon"><span class="hexagon-label">F4</span></div>
+    <div id="F5" class="hexagon"><span class="hexagon-label">F5</span></div>
+    <div id="F6" class="hexagon"><span class="hexagon-label">F6</span></div>
+    <div id="F7" class="hexagon"><span class="hexagon-label">F7</span></div>
+    <div id="F8" class="hexagon"><span class="hexagon-label">F8</span></div>
+    <div id="F9" class="hexagon"><span class="hexagon-label">F9</span></div>
+    <div id="F10" class="hexagon"><span class="hexagon-label">F10</span></div>
+    <div id="G1" class="hexagon"><span class="hexagon-label">G1</span></div>
+    <div id="G2" class="hexagon"><span class="hexagon-label">G2</span></div>
+    <div id="G3" class="hexagon"><span class="hexagon-label">G3</span></div>
+    <div id="G4" class="hexagon"><span class="hexagon-label">G4</span></div>
+    <div id="G5" class="hexagon"><span class="hexagon-label">G5</span></div>
+    <div id="G6" class="hexagon"><span class="hexagon-label">G6</span></div>
+    <div id="G7" class="hexagon"><span class="hexagon-label">G7</span></div>
+    <div id="G8" class="hexagon"><span class="hexagon-label">G8</span></div>
+    <div id="G9" class="hexagon"><span class="hexagon-label">G9</span></div>
+    <div id="G10" class="hexagon"><span class="hexagon-label">G10</span></div>
+
+    <script>
+        const hexagonButtonOne = document.getElementById('hexagon-button-one');
+        const hexagonButtonTwo = document.getElementById('hexagon-button-two');
+
+        hexagonButtonOne.addEventListener('click', () => {
+            const fadeInGroups = [
+    ['#A1', '#B2', '#C1'],
+    ['#A2', '#B3', '#C2', '#D1', '#D2'],
+    ['#E1', '#E2', '#D3', '#C3', '#A3', '#B4'],
+    ['#F1', '#F2', '#F3', '#E3', '#D4', '#C4'],
+    ['#G1', '#G2', '#G3', '#A4'],
+    ['#E4', '#F4', '#G4'],
+    ['#F5', '#B5'],
+    ['#G5', '#F6', '#F5', '#A5', '#B6'],
+    ['#G6', '#A6'],
+    ['#F7', '#B7'],
+    ['#G7', '#A7'],
+    ['#F8', '#B8', '#E7', '#C7'],
+    ['#D8'],
+    ['#A8', '#C8', '#E8', '#G8'],
+    ['#B9', '#D9', '#F9'],
+    ['#A9', '#C9', '#E9', '#G9'],
+    ['#B10', '#D10', '#F10'],
+    ['#A10', '#C10', '#E10', '#G10'],
+    ['#B11', '#D11'],
+    ['#D6'],        // #D6 appears first
+    ['#C6'],        // #C6 appears after #D6
+    ['#D7'],        // #D7 appears before #E6
+    ['#E6'],
+    ['#E5'],
+    ['#D5'],
+    ['#C5'],  // #E6 appears after #D7
+];
+
+
+            const delayBetweenGroups = 300;
+
+            fadeInGroups.forEach((group, index) => {
+                setTimeout(() => {
+                    group.forEach(hexId => {
+                        const hex = document.querySelector(hexId);
+                        if (hex) {
+                            hex.style.display = 'flex';
+                            hex.style.animation = 'fadeIn 1s ease-in-out forwards';
+                        }
+                    });
+
+                    if (group.includes('#D6')) {
+                        const hexD6 = document.querySelector('#D6');
+                        if (hexD6) {
+                            hexD6.style.display = 'flex';
+                            hexD6.style.animation = 'expandAndContract 1s ease-in-out forwards, fadeIn 1s ease-in-out forwards';
+                        }
+                    }
+                }, index * delayBetweenGroups);
+            });
+        });
+
+        hexagonButtonTwo.addEventListener('click', () => {
+            const hexagons = document.querySelectorAll('.hexagon');
+            hexagons.forEach(hex => {
+                hex.style.display = 'none';
+            });
+        });
+    </script>
+</body>
+</html>

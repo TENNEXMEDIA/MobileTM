@@ -1,0 +1,18 @@
+    /* Minimalist Button 1 - adjustable height and width */
+  .minimalist-button-1 {
+    display: flex; /* Center content horizontally */
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    line-height: normal; /* Ensure line-height doesn't affect centering */
+    height:  9vh;
+    width: 20vw;
+    text-align: center;
+    cursor: pointer;
+    color: var(--text-color);
+    font-size: var(--font-size);
+    background-color: transparent;
+    font-family: 'Bodoni Moda', serif;
+    position: relative;
+    transition: all 0.3s;
+    margin-bottom: 10px; /* Space between Button 1 and Button 2 */
+  }

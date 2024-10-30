@@ -1,0 +1,370 @@
+<!-- begin cut here -->
+<!-- CONTENTS -
+Index 1-17: CSS styles for the page, hexagons, and transitions.
+Index 18-22: HTML structure for hexagons (A1-A4) and the new section.
+Index 23-31: JavaScript functions and event handlers for positioning, resizing, and interactions. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Hexagon Cascade with A1, A2, A3, A4, and S1A">
+    <title>Hexagon Cascade</title>
+
+    <style>
+       
+    /* Index 1: General body and html styling */
+    
+    /* BEGIN CUT HERE */
+    body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            background-color: white;
+            overflow: hidden;
+            scroll-behavior: smooth; /* Smooth scrolling effect */
+        }
+        /*  END CUT HERE  */
+        
+        /* Index 2: Styling for sections */
+        
+        /* BEGIN CUT HERE */
+        .section {
+            height: 100vh; /* Each section takes up a full viewport height */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: white;
+        }
+        /*  END CUT HERE  */
+        
+        /* Index 3: Different background color for second section */
+        
+        /* BEGIN CUT HERE */
+        .section-2 {
+            background-color: lightgray; /* Background color for second section */
+        }
+        /*  END CUT HERE  */
+        
+        /* Index 4: Hexagon container styling */
+        
+        /* BEGIN CUT HERE */
+        .hexagon-container {
+            position: absolute;
+            width: 10vw;
+            height: 10vw;
+            max-width: 256px;
+            max-height: 256px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        /*  END CUT HERE  */
+        
+        /* Index 5: Full hexagon shape */
+        
+         /* BEGIN CUT HERE */
+        .hexagon {
+            background: black;
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            width: 100%;
+            height: 100%;
+            transition: transform 0.5s ease-in-out, box-shadow 0.3s ease-in-out;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        /*  END CUT HERE  */
+        
+        /* Index 6: Initial white background for A2 hexagon */
+        
+        /* BEGIN CUT HERE */
+        #hexagon-A2 {
+            background: white;
+            transition: background-color 0.5s ease-in-out;
+        }
+        /*  END CUT HERE  */
+        
+        /* Index 7: Hexagon span (text) styling */
+            
+         /* BEGIN CUT HERE */
+        .hexagon span {
+            font-family: 'Bodoni Moda', serif;
+            font-size: 2vw;
+            color: white;
+            pointer-events: none;
+            transition: text-shadow 0.5s ease, color 0.5s ease-in-out, opacity 0.5s ease-in-out;
+            transform: rotate(270deg);
+            position: relative;
+            top: 7vh;
+            left: -5vh;
+        }
+        /*  END CUT HERE  */
+        
+        /* Index 8: A2 hexagon span text initially transparent */
+           
+         /* BEGIN CUT HERE */
+        #hexagon-A2 span {
+            color: white;
+            opacity: 0; /* Initially transparent */
+        }
+        /*  END CUT HERE  */
+        
+        /* Index 9: Hover effect for A2 hexagon text */
+           
+         /* BEGIN CUT HERE */
+        #hexagon-A2:hover span {
+            text-shadow: 0 0 10px black; /* Black glow on hover */
+        }
+        /*  END CUT HERE  */
+        
+        /* Index 10: Hexagon hover effects */
+           
+         /* BEGIN CUT HERE */
+        .hexagon:hover {
+            box-shadow: 0 0 20px 10px white;
+            transform: scale(1.1);
+        }
+        /*  END CUT HERE  */
+        
+        /* Index 11: Hover effect for hexagon span text */
+           
+         /* BEGIN CUT HERE */
+        .hexagon:hover span {
+            text-shadow: 0 0 10px white;
+        }
+        /*  END CUT HERE  */
+        
+        /* Index 12: Hexagon active/focused state */
+           
+         /* BEGIN CUT HERE */
+        .hexagon:active, .hexagon:focus {
+            background: black !important;
+            opacity: 1 !important;
+            box-shadow: 0 0 20px 10px white;
+            transform: scale(1);
+            outline: none;
+            transition: none;
+            }
+        /*  END CUT HERE  */
+        
+        /* Index 13: Rotate A1, A2, A4 by 90 degrees */
+           
+         /* BEGIN CUT HERE */
+#container-A1, #container-A2 {
+    transform: rotate(90deg);
+}
+        /*  END CUT HERE  */
+        
+        /* Index 14: Rotate A3 by -90 degrees counterclockwise */
+           
+         /* BEGIN CUT HERE */
+#container-A3 {
+    transform: rotate(60deg); /* Updated rotation for A3 */
+}
+
+#container-A4 {
+    transform: rotate(45deg); /* A4 remains the same */
+}
+        /*  END CUT HERE  */
+        
+        /* Index 15: Centered hexagon styling */
+           
+         /* BEGIN CUT HERE */
+        .hexagon-centered {
+            position: absolute;
+            width: 10vw;
+            height: 10vw;
+            max-width: 256px;
+            max-height: 256px;
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            transform: rotate(90deg);
+            transition: background-color 0.5s ease-in-out, opacity 0.5s ease-in-out;
+            background: black;
+            opacity: 0;
+        }
+        /*  END CUT HERE  */
+        
+        /* Index 16: S1A background and opacity */
+           
+         /* BEGIN CUT HERE */
+        #s1a {
+            background: black;
+        }
+        /*  END CUT HERE  */
+        
+        /* Index 17: Hexagons cut horizontally at midpoint (fix to allow rotation) */
+           
+         /* BEGIN CUT HERE */
+        #hexagon-A3, #hexagon-A4 {
+            clip-path: none; /* Reset clipping to allow for proper rotation */
+        }
+
+        #hexagon-A3::before, #hexagon-A4::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 50%;
+            background: inherit; /* Use same background */
+            top: 0;
+            clip-path: polygon(50% 0%, 100% 25%, 100% 50%, 50% 50%, 0% 50%, 0% 25%);
+        }
+
+        #hexagon-A3::after, #hexagon-A4::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 50%;
+            background: inherit;
+            bottom: 0;
+            clip-path: polygon(50% 50%, 100% 75%, 100% 100%, 50% 100%, 0% 100%, 0% 75%);
+        }
+        /*  END CUT HERE  */
+        
+    </style>
+</head>
+<body>
+
+    <!-- First section (Hexagons) -->
+    <div class="section section-1">
+        <!-- Index 18: A1 hexagon rotated by 90 degrees -->
+        
+        <!--  BEGIN CUT HERE -->
+        <div class="hexagon-container" id="container-A1" style="left: -6vh; top: 0vh;">
+            <div class="hexagon" id="hexagon-A1">
+                <span style="position: relative; top: 0; left: 0; transform: rotate(270deg); display: inline-block;">More</span>
+            </div>
+        </div>
+        <!--  END CUT HERE -->
+        
+        <!-- Index 19: A2 hexagon rotated by 90 degrees -->
+        
+        <!--  BEGIN CUT HERE -->
+        <div class="hexagon-container" id="container-A2" style="left: calc(101.5vw - 20vh); top: calc(101vh - 10vw);">
+            <div class="hexagon" id="hexagon-A2">
+                <span style="position: relative; top: 0; left: 0; transform: rotate(-90deg); display: inline-block;">Less</span>
+            </div>
+        </div>
+        <!--  END CUT HERE -->
+        
+        <!-- Index 20: A3 hexagon rotated counterclockwise and cut horizontally at midpoint -->
+        
+        <!--  BEGIN CUT HERE -->
+<div class="hexagon-container" id="container-A3" style="left: 50vw; top: 90vh; transform: translateX(-50%);">
+    <div class="hexagon" id="hexagon-A3" style="position: relative;">
+        <span style="position: absolute; top: 10px; left: 5%; transform: translateX(-50%); display: inline-block; font-size: 7vw;">⌄</span>
+    </div>
+</div>
+        <!--  END CUT HERE -->
+        
+        <!--  begin cut here-->
+        <div class="hexagon-centered" id="s1a">
+            <span>S1A</span>
+        </div>
+    </div>
+        <!--  END CUT HERE -->
+        
+    <!-- Second section (New page after scrolling) -->
+    
+        <!--  BEGIN CUT HERE -->
+    <div class="section section-2">
+        <h1>Welcome to the Second Section!</h1>
+        <!--  END CUT HERE -->
+        
+        <!-- Index 22: A4 hexagon cut horizontally at midpoint -->
+        
+        <!--  BEGIN CUT HERE -->
+<div class="hexagon-container" id="container-A4" style="left: 50vw; top: 10vh; transform: translateX(-50%);">
+    <div class="hexagon" id="hexagon-A4" style="position: relative;">
+        <span style="position: absolute; top: 10px; left: 5%; transform: translateX(-50%); display: inline-block; font-size: 7vw;">⌄</span>
+    </div>
+</div>
+
+    <!--  END CUT HERE -->
+        
+    <script>
+        /* Index 23: Get elements for hexagons and S1A */
+        
+        /*  BEGIN CUT HERE */
+        const hexagonA1 = document.getElementById('container-A1');
+        const hexagonA2 = document.getElementById('hexagon-A2');
+        const hexagonA3 = document.getElementById('hexagon-A3');
+        const hexagonA4 = document.getElementById('hexagon-A4');
+        const s1a = document.getElementById('s1a');
+        const hexagonA2Text = document.querySelector('#hexagon-A2 span'); // A2 "Less" text
+        /*  END CUT HERE */
+        
+        /* Index 24: Function to position hexagon relative to A1 */
+        /*  BEGIN CUT HERE */
+        function positionHexagonRelativeToA1(hexagon, offsetXvw, offsetYvh) {
+            const a1Position = hexagonA1.getBoundingClientRect();
+
+            hexagon.style.top = `${a1Position.top + (window.innerHeight * offsetYvh / 100)}px`; // Adjust Y
+            hexagon.style.left = `${a1Position.left + (window.innerWidth * offsetXvw / 100)}px`; // Adjust X
+        }
+        /*  END CUT HERE */
+        
+        /* Index 25: Set S1A's offset values */
+        /*  BEGIN CUT HERE */
+        const s1aOffsets = { x: 7.5, y: -11.5 };
+        /*  END CUT HERE */
+        
+        /* Index 26: Position hexagons on page load */
+        /*  BEGIN CUT HERE */
+        window.onload = () => {
+            positionHexagonRelativeToA1(s1a, s1aOffsets.x, s1aOffsets.y);
+        };
+        /*  END CUT HERE */
+        
+        /* Index 27: Recalculate positions on window resize */
+        /*  BEGIN CUT HERE */
+        window.onresize = () => {
+            positionHexagonRelativeToA1(s1a, s1aOffsets.x, s1aOffsets.y);
+        };
+        /*  END CUT HERE */
+        
+        /* Index 28: Show S1A and turn A2 text black on A1 click */
+        /*  BEGIN CUT HERE */
+        hexagonA1.addEventListener('click', () => {
+            s1a.style.opacity = 1;
+            setTimeout(() => {
+                hexagonA2Text.style.color = 'black';
+                hexagonA2Text.style.opacity = 1;
+            }, 500);
+        });
+        /*  END CUT HERE */
+        
+        /* Index 29: Hide S1A and reset A2 text on A2 click */
+        /*  BEGIN CUT HERE */
+        hexagonA2.addEventListener('click', () => {
+            s1a.style.opacity = 0;
+            hexagonA2Text.style.color = 'white';
+            hexagonA2Text.style.opacity = 0;
+        });
+        /*  END CUT HERE */
+        
+        /* Index 30: Scroll down on A3 click */
+        /*  BEGIN CUT HERE */
+        hexagonA3.addEventListener('click', () => {
+            window.scrollBy({
+                top: window.innerHeight,
+                behavior: 'smooth'
+            });
+        });
+        /*  END CUT HERE */
+        
+        /* Index 31: Scroll up on A4 click */
+        /*  BEGIN CUT HERE */
+        hexagonA4.addEventListener('click', () => {
+            window.scrollBy({
+                top: -window.innerHeight,
+                behavior: 'smooth'
+            });
+        });
+        /*  END CUT HERE */
+   </script>
+</body>
+</html>
+<!-- end cut here -->

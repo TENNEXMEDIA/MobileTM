@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Toggle Button Text with Bodoni Moda Font</title>
+  <!-- Import Bodoni Moda font from Google Fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400;700&display=swap">
+  <style>
+    /* Full-page container with white background */
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #FFFFFF; /* White background */
+      font-family: 'Bodoni Moda', serif; /* Set Bodoni Moda as default font */
+    }
+
+    /* Wrapper for button positioning and styling adjustments */
+    .button-wrapper {
+      --text-color: #5e503f; /* Button text color */
+      --hover-line-color: #5e503f; /* Top and bottom line color */
+      --overlay-color: var(--custom-overlay-color, rgb(73, 17, 28)); /* Adjustable overlay background */
+      --font-size: 24px; /* Adjustable font size */
+      
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 87.5%; /* 75% between center and bottom */
+      left: 50%; /* Centered horizontally */
+      transform: translate(-50%, -50%);
+    }
+
+    /* Transparent Button Styling */
+    .btn {
+      line-height: 50px;
+      height: 50px;
+      text-align: center;
+      width: 250px;
+      cursor: pointer;
+      color: var(--text-color); /* Variable for text color */
+      font-size: var(--font-size); /* Adjustable font size */
+      background-color: transparent; /* Transparent background */
+      transition: all 0.3s;
+      position: relative;
+      font-family: 'Bodoni Moda', serif; /* Ensure button font is Bodoni Moda */
+    }
+
+    .btn-one span {
+      transition: all 0.3s;
+    }
+
+    .btn-one::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      opacity: 0;
+      transition: all 0.3s;
+      border-top: 1px solid var(--hover-line-color); /* Variable for hover line color */
+      border-bottom: 1px solid var(--hover-line-color);
+      transform: scale(0.1, 1);
+    }
+
+    .btn-one:hover span {
+      letter-spacing: 2px;
+    }
+
+    .btn-one:hover::before {
+      opacity: 1;  
+      transform: scale(1, 1);  
+    }
+
+    .btn-one::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      transition: all 0.3s;
+      background-color: var(--overlay-color); /* Variable for inner background color */
+    }
+
+    .btn-one:hover::after {
+      opacity: 0;  
+      transform: scale(0.1, 1);
+    }
+  </style>
+</head>
+<body>
+  <!-- Wrapper for the button with adjustable font size and overlay color -->
+  <div class="button-wrapper" style="--font-size: 20px; --custom-overlay-color: #5e503f1c;">
+    <div class="btn btn-one" onclick="toggleText(this)">
+      <span>MORE</span>
+    </div>
+  </div>
+
+  <script>
+    function toggleText(button) {
+      const span = button.querySelector("span");
+      span.textContent = span.textContent === "MORE" ? "LESS" : "MORE";
+    }
+  </script>
+</body>
+</html>

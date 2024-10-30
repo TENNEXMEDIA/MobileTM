@@ -1,0 +1,79 @@
+
+    <!-- Hexagons (Groups A - G) -->
+    <div id="A1" class="hexagon"><span class="hexagon-label">A1</span></div>
+    <div id="A2" class="hexagon"><span class="hexagon-label">A2</span></div>
+    <div id="A3" class="hexagon"><span class="hexagon-label">A3</span></div>
+    <div id="A4" class="hexagon"><span class="hexagon-label">A4</span></div>
+    <div id="A5" class="hexagon"><span class="hexagon-label">A5</span></div>
+    <div id="A6" class="hexagon"><span class="hexagon-label">A6</span></div>
+    <div id="A7" class="hexagon"><span class="hexagon-label">A7</span></div>
+    <div id="A8" class="hexagon"><span class="hexagon-label">A8</span></div>
+    <div id="A9" class="hexagon"><span class="hexagon-label">A9</span></div>
+    <div id="A10" class="hexagon"><span class="hexagon-label">A10</span></div>
+
+    <div id="B2" class="hexagon"><span class="hexagon-label">B2</span></div>
+    <div id="B3" class="hexagon"><span class="hexagon-label">B3</span></div>
+    <div id="B4" class="hexagon"><span class="hexagon-label">B4</span></div>
+    <div id="B5" class="hexagon"><span class="hexagon-label">B5</span></div>
+    <div id="B6" class="hexagon"><span class="hexagon-label">B6</span></div>
+    <div id="B7" class="hexagon"><span class="hexagon-label">B7</span></div>
+    <div id="B8" class="hexagon"><span class="hexagon-label">B8</span></div>
+    <div id="B9" class="hexagon"><span class="hexagon-label">B9</span></div>
+    <div id="B10" class="hexagon"><span class="hexagon-label">B10</span></div>
+    <div id="B11" class="hexagon"><span class="hexagon-label">B11</span></div>
+
+    <div id="C1" class="hexagon"><span class="hexagon-label">C1</span></div>
+    <div id="C2" class="hexagon"><span class="hexagon-label">C2</span></div>
+    <div id="C3" class="hexagon"><span class="hexagon-label">C3</span></div>
+    <div id="C4" class="hexagon"><span class="hexagon-label">C4</span></div>
+    <div id="C5" class="hexagon"><span class="hexagon-label">C5</span></div>
+    <div id="C6" class="hexagon"><span class="hexagon-label">C6</span></div>
+    <div id="C7" class="hexagon"><span class="hexagon-label">C7</span></div>
+    <div id="C8" class="hexagon"><span class="hexagon-label">C8</span></div>
+    <div id="C9" class="hexagon"><span class="hexagon-label">C9</span></div>
+    <div id="C10" class="hexagon"><span class="hexagon-label">C10</span></div>
+
+    <div id="D1" class="hexagon"><span class="hexagon-label">D1</span></div>
+    <div id="D2" class="hexagon"><span class="hexagon-label">D2</span></div>
+    <div id="D3" class="hexagon"><span class="hexagon-label">D3</span></div>
+    <div id="D4" class="hexagon"><span class="hexagon-label">D4</span></div>
+    <div id="D5" class="hexagon"><span class="hexagon-label">D5</span></div>
+    <div id="D6" class="hexagon"><span class="hexagon-label">D6</span></div>
+    <div id="D7" class="hexagon"><span class="hexagon-label">D7</span></div>
+    <div id="D8" class="hexagon"><span class="hexagon-label">D8</span></div>
+    <div id="D9" class="hexagon"><span class="hexagon-label">D9</span></div>
+    <div id="D10" class="hexagon"><span class="hexagon-label">D10</span></div>
+    <div id="D11" class="hexagon"><span class="hexagon-label">D11</span></div>
+
+    <div id="E1" class="hexagon"><span class="hexagon-label">E1</span></div>
+    <div id="E2" class="hexagon"><span class="hexagon-label">E2</span></div>
+    <div id="E3" class="hexagon"><span class="hexagon-label">E3</span></div>
+    <div id="E4" class="hexagon"><span class="hexagon-label">E4</span></div>
+    <div id="E5" class="hexagon"><span class="hexagon-label">E5</span></div>
+    <div id="E6" class="hexagon"><span class="hexagon-label">E6</span></div>
+    <div id="E7" class="hexagon"><span class="hexagon-label">E7</span></div>
+    <div id="E8" class="hexagon"><span class="hexagon-label">E8</span></div>
+    <div id="E9" class="hexagon"><span class="hexagon-label">E9</span></div>
+    <div id="E10" class="hexagon"><span class="hexagon-label">E10</span></div>
+
+    <div id="F1" class="hexagon"><span class="hexagon-label">F1</span></div>
+    <div id="F2" class="hexagon"><span class="hexagon-label">F2</span></div>
+    <div id="F3" class="hexagon"><span class="hexagon-label">F3</span></div>
+    <div id="F4" class="hexagon"><span class="hexagon-label">F4</span></div>
+    <div id="F5" class="hexagon"><span class="hexagon-label">F5</span></div>
+    <div id="F6" class="hexagon"><span class="hexagon-label">F6</span></div>
+    <div id="F7" class="hexagon"><span class="hexagon-label">F7</span></div>
+    <div id="F8" class="hexagon"><span class="hexagon-label">F8</span></div>
+    <div id="F9" class="hexagon"><span class="hexagon-label">F9</span></div>
+    <div id="F10" class="hexagon"><span class="hexagon-label">F10</span></div>
+
+    <div id="G1" class="hexagon"><span class="hexagon-label">G1</span></div>
+    <div id="G2" class="hexagon"><span class="hexagon-label">G2</span></div>
+    <div id="G3" class="hexagon"><span class="hexagon-label">G3</span></div>
+    <div id="G4" class="hexagon"><span class="hexagon-label">G4</span></div>
+    <div id="G5" class="hexagon"><span class="hexagon-label">G5</span></div>
+    <div id="G6" class="hexagon"><span class="hexagon-label">G6</span></div>
+    <div id="G7" class="hexagon"><span class="hexagon-label">G7</span></div>
+    <div id="G8" class="hexagon"><span class="hexagon-label">G8</span></div>
+    <div id="G9" class="hexagon"><span class="hexagon-label">G9</span></div>
+    <div id="G10" class="hexagon"><span class="hexagon-label">G10</span></div>

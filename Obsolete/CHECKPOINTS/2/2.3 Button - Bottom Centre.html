@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hexagon Example</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            background-color: white;
+            overflow: hidden;
+        }
+
+        .hexagon-container {
+            position: absolute;
+            width: 10vw;
+            height: 10vw;
+            max-width: 256px;
+            max-height: 256px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            left: 50%; /* Center horizontally */
+            bottom: 5%;  /* Position near the bottom */
+            transform: translateX(-50%); /* Center horizontally and avoid vertical translation */
+        }
+
+        .hexagon {
+            background: black;
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            width: 100%;
+            height: 100%;
+            transition: transform 0.5s ease-in-out, box-shadow 0.3s ease-in-out;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transform: rotate(-90deg); /* Rotate the hexagon by -90 degrees */
+        }
+
+        .hexagon span {
+            font-family: 'Bodoni Moda', serif;
+            font-size: 2vw;
+            color: white;
+            pointer-events: none;
+            transform: rotate(90deg); /* Rotate text back by 90 degrees */
+            position: relative;
+        }
+
+        .hexagon:hover {
+            box-shadow: 0 0 20px 10px white;
+            transform: scale(1.1) rotate(-90deg); /* Keep rotation on hover */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Button Three Hexagon -->
+    <div class="hexagon-container" id="container-button-three">
+        <div class="hexagon" id="hexagon-button-three">
+            <span style="position: relative; top: 0; left: 0; display: inline-block;">Button 3</span>
+        </div>
+    </div>
+
+    <script>
+        const hexagonButtonThree = document.getElementById('container-button-three');
+
+        hexagonButtonThree.addEventListener('click', () => {
+            alert('Hexagon Button 3 clicked!');
+        });
+    </script>
+</body>
+</html>
