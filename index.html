@@ -4,8 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Test Page</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Hello, World!</h1>
+    <div id="hero">
+        <h1>Hello, World!</h1>
+        <!-- Video Section -->
+        <div class="video-container">
+            <video id="video" autoplay loop muted playsinline>
+                <source src="videos/TenneX.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <button onclick="revealButtons()">Show More</button>
+        <div id="extra-buttons" style="display: none;">
+            <button>Button 1</button>
+            <button>Button 2</button>
+            <button>Button 3</button>
+            <button>Button 4</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>

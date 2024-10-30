@@ -1,6 +1,9 @@
 // Hero Section interaction
 function revealButtons() {
-    document.getElementById("extra-buttons").style.display = "block";
+    const extraButtons = document.getElementById("extra-buttons");
+    if (extraButtons.style.display === "none") {
+        extraButtons.style.display = "block";
+    } else {
+        extraButtons.style.display = "none";
+    }
 }
-
-// Add other JavaScript functions here as you build
